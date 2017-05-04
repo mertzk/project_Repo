@@ -7,6 +7,6 @@
     app for CS 257, Spring 2017.
 '''
 
-database = 'postgres'
-user = 'keaton'
-password = '1klm.fly'
+database = 'huynhk'
+user = 'huynhk'
+password = 'heart837recycle'
