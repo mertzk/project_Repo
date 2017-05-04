@@ -432,10 +432,7 @@ def help():
     return json.dumps(rule_list)
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 1:
         print ('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
         exit()
-
-    host = sys.argv[1]
-    port = sys.argv[2]
     app.run(host='thacker.mathcs.carleton.edu', port=5118, debug=True)
