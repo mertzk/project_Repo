@@ -3216,70 +3216,70 @@ ALTER TABLE ONLY roomtype
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
 
-GRANT USAGE ON SCHEMA public TO keaton;
+GRANT USAGE ON SCHEMA public TO huynhk;
 
 
 --
 -- Name: buildings; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT SELECT ON TABLE buildings TO keaton;
+GRANT SELECT ON TABLE buildings TO huynhk;
 
 
 --
 -- Name: buildings_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT SELECT ON SEQUENCE buildings_id_seq TO keaton;
+GRANT SELECT ON SEQUENCE buildings_id_seq TO huynhk;
 
 
 --
 -- Name: drawnumbers; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT SELECT ON TABLE drawnumbers TO keaton;
+GRANT SELECT ON TABLE drawnumbers TO huynhk;
 
 
 --
 -- Name: drawnumbers_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT SELECT ON SEQUENCE drawnumbers_id_seq TO keaton;
+GRANT SELECT ON SEQUENCE drawnumbers_id_seq TO huynhk;
 
 
 --
 -- Name: idmatching; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT SELECT ON TABLE idmatching TO keaton;
+GRANT SELECT ON TABLE idmatching TO huynhk;
 
 
 --
 -- Name: rooms; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT SELECT ON TABLE rooms TO keaton;
+GRANT SELECT ON TABLE rooms TO huynhk;
 
 
 --
 -- Name: rooms_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT SELECT ON SEQUENCE rooms_id_seq TO keaton;
+GRANT SELECT ON SEQUENCE rooms_id_seq TO huynhk;
 
 
 --
 -- Name: roomtype; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT SELECT ON TABLE roomtype TO keaton;
+GRANT SELECT ON TABLE roomtype TO huynhk;
 
 
 --
 -- Name: roomtype_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT SELECT ON SEQUENCE roomtype_id_seq TO keaton;
+GRANT SELECT ON SEQUENCE roomtype_id_seq TO huynhk;
 
 
 --
@@ -3287,7 +3287,7 @@ GRANT SELECT ON SEQUENCE roomtype_id_seq TO keaton;
 --
 
 ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public REVOKE ALL ON TABLES  FROM postgres;
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT SELECT ON TABLES  TO keaton;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT SELECT ON TABLES  TO huynhk;
 
 
 --
