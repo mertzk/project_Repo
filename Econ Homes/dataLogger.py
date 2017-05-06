@@ -32,7 +32,9 @@ def dataPull(*args):
         print('Error in file Pulling, proper arguments not provided:\nexpected: dataType or dataType,data \nreceived: ' + str(args) + '\nfrom: ' + str(sys.argv))
         return
     if len(files) > 0:
-        return(max(files))
+        completeName = os.path.join(save_path,max(files))
+        file = open(completeName, 'r')
+        return eval(file.read())
     else:
         print('Error in file Pulling, 0 files found with provided arguuments:\nexpected: dataType or dataType,data \nreceived: ' + str(args) + '\nfrom: ' + str(sys.argv))
         return

@@ -8,7 +8,6 @@
 import config
 import dataLogger
 import sys
-import json
 import urllib.request
 
 def zpidFinder():

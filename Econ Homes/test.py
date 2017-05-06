@@ -1,8 +1,8 @@
 import time
 import datetime
 import os
-import dataLogger
-import test1
-test1.main()
-#dataLogger.dataPull('test')
-#dataLogger.dataCache('test',[1,2,3,4,5])
+import sys
+import json
+import urllib.request
+args = ["hi","yo","Bye"]
+print('yo' in args)
