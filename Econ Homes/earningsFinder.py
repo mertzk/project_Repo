@@ -6,7 +6,7 @@ numberMonths = 360
 yearCounter = 0
 yearList = list(range(1,31))
 insuranceAnnual = 300
-managementCompanyRentPercent = 0.01
+managementCompanyRentPercent = 1
 monthlyFee = 89
 taxSavings = 1000
 rentlessMonths = 1
@@ -18,13 +18,13 @@ def earningsFinder(dataList):
     price, propertyTax, expectedRent, HOA, zpid = dataList
     #Formulas
     mortgagePayment = -((price*(1-downPayment)*(intrestRate/12.0)) / (1 - ((1 + (intrestRate/12))**(-numberMonths))))*12#PMT
-    initialInvestment = downPayment*price
+    initialInvestment = downPayment * price
 
     cumulativeIncome = 0
     houseValue = price
     for year in yearList:
         #first im adding inflationTiedCost, then mortgagePayment, then totalEarnings
-        cumulativeIncome += (-(propertyTax + (HOA * 12) + insuranceAnnual + ( 12 - rentlessMonths ) * managementCompanyRentPercent*expectedRent + monthlyFee * 12  + annualCostRepairs)*(1+inflation)**(year-1))
+        cumulativeIncome += (-(propertyTax + (HOA * 12) + insuranceAnnual + ( 11 - rentlessMonths ) * monthlyFee + managementCompanyRentPercent*expectedRent  + annualCostRepairs)*(1+inflation)**(year-1))
         cumulativeIncome += mortgagePayment
         cumulativeIncome += ((expectedRent*(12-rentlessMonths)+taxSavings)*(1+inflation)**(year-1))
         if year>1:
@@ -39,5 +39,7 @@ def main(*args):
         dataFile = dataLogger.dataPull('detailFinder')
     for dataList in dataFile:
         dataToWrite.append(earningsFinder(dataList))
+    dataToWrite.append([0,0,0,0])
+    dataToWrite.append([0,0,0,0])
     dataLogger.dataCache('earningsFinder',dataToWrite)
     #dataLogger.dataCache('ErrorLog',errorList)

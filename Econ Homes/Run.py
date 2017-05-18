@@ -4,6 +4,7 @@ import sys
 import zpidFinder
 import detailFinder
 import earningsFinder
+import comboFinder
 
 def help(args):
     helpList=['h','-h','help','--help','?','-?']
@@ -64,6 +65,12 @@ def main(args):
             earningsFinder.main(date)
         else:
             earningsFinder.main()
+
+    if 'comboFinder' in args or len(args) == 1:
+        if hasDate:
+            comboFinder.main(date)
+        else:
+            comboFinder.main()
 
 
 main(sys.argv)

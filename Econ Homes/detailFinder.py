@@ -61,22 +61,25 @@ def getAddress(zpidList):
                 else:
                     priceDetails = htmlHomeDetails[start+6:end+16]
                     end = priceDetails.find(',')
-                    print(priceDetails)
-                    price = priceDetails[:end]
+                    if priceDetails[:end] == "": price = 0
+                    else: price = eval(priceDetails[:end])
             else:
                 priceDetails = htmlHomeDetails[start+8:end+16]
                 end = htmlHomeDetails.find('"')
-                price = eval(priceDetails[:end])
+                if priceDetails[:end] == "": price = 0
+                else: price = eval(priceDetails[:end])
         else:
             priceDetails = htmlHomeDetails[start+30:start+65]
             start = priceDetails.find('="')
             priceDetails = priceDetails[start+2:]
             end = priceDetails.find('"')
             price = eval(priceDetails[:end])
+        if price == 0:
+            price = 50000000
 
         start = htmlHomeDetails.find('HOA Fee:')
         if start == -1:
-            HOA=0
+            HOA=price*.001
         else:
             HOADetails = htmlHomeDetails[start+28:start+65]
             start = HOADetails.find('>$')
