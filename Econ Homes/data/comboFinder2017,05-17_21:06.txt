@@ -1,0 +1,1 @@
+OrderedDict([(957943.8718961489, [58760.0, ['http://www.zillow.com/homes/63035958_zpid', 'http://www.zillow.com/homes/0_zpid', 'http://www.zillow.com/homes/1600710_zpid']]), (1158457.7514859468, [58962.600000000006, ['http://www.zillow.com/homes/1685674_zpid', 'http://www.zillow.com/homes/63035958_zpid', 'http://www.zillow.com/homes/63035958_zpid']])])

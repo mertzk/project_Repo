@@ -13,7 +13,7 @@ def comboFinder(valuesList):
         for house2 in valuesList[2:]:
             comboCost = house1[0]+house2[0]+initialInvestment
             comboReward = house1[1] + house1[2] + house2[1] + house2[2] + houseValue + cumulativeIncome
-            if comboCost < 60000 and comboReward > 950000:
+            if comboCost < 60000 and comboReward > 820000:
                 comboList.update({comboReward:[comboCost,["http://www.zillow.com/homes/"+str(zpid)+"_zpid", "http://www.zillow.com/homes/"+str(house1[3])+"_zpid","http://www.zillow.com/homes/"+str(house2[3])+"_zpid"]]})
     return comboList
 
