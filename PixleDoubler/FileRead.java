@@ -19,13 +19,29 @@ public class FileRead {
         while ((CurrentLine = buffer.readLine())!=null) {
             rowList = new ArrayList<String>(Arrays.asList(CurrentLine.split("\\t")));
             System.out.println(rowList);
-            String newRowString = rowList.get(0) + "\t" + rowList.get(0);
+            String newRowString = rowList.get(0) + "\t" + rowList.get(0) + "\t" + rowList.get(0) + "\t" + rowList.get(0) + "\t" + rowList.get(0) + "\t" + rowList.get(0);
             for(int i = 1;rowList.size() > i;i++){
                 newRowString += "\t";
                 newRowString = newRowString + rowList.get(i);
                 newRowString += "\t";
                 newRowString = newRowString + rowList.get(i);
+                newRowString += "\t";
+                newRowString = newRowString + rowList.get(i);
+                newRowString += "\t";
+                newRowString = newRowString + rowList.get(i);
+                newRowString += "\t";
+                newRowString = newRowString + rowList.get(i);
+                newRowString += "\t";
+                newRowString = newRowString + rowList.get(i);
             }
+            bufferW.write(newRowString);
+            bufferW.newLine();
+            bufferW.write(newRowString);
+            bufferW.newLine();
+            bufferW.write(newRowString);
+            bufferW.newLine();
+            bufferW.write(newRowString);
+            bufferW.newLine();
             bufferW.write(newRowString);
             bufferW.newLine();
             bufferW.write(newRowString);
