@@ -1,5 +1,3 @@
-package edu.carleton.mertzk;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -22,7 +20,6 @@ public class ChooseFile extends JPanel implements ActionListener {
 
     public ChooseFile() {
         super(new BorderLayout());
-
         //Create the log first, because the action listeners
         //need to refer to it.
         log = new JTextArea(5,20);
@@ -43,7 +40,7 @@ public class ChooseFile extends JPanel implements ActionListener {
         //fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         //fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 
-        openButton = new JButton("Open File");
+        openButton = new JButton("Select File");
         openButton.addActionListener(this);
 
         //For layout purposes, put the buttons in a separate panel
@@ -65,21 +62,16 @@ public class ChooseFile extends JPanel implements ActionListener {
                 File file = fc.getSelectedFile();
                 //This is where a real application would open the file.
                 log.append("Opening: " + file.getName() + "." + newline);
+                FileRead fileRead = new FileRead();
+                try {
+                    fileRead.reader(file.getPath());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             } else {
                 log.append("Open command cancelled by user." + newline);
             }
             log.setCaretPosition(log.getDocument().getLength());
-        }
-    }
-
-    /** Returns an ImageIcon, or null if the path was invalid. */
-    protected static ImageIcon createImageIcon(String path) {
-        java.net.URL imgURL = ChooseFile.class.getResource(path);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
         }
     }
 
@@ -88,9 +80,9 @@ public class ChooseFile extends JPanel implements ActionListener {
      * this method should be invoked from the
      * event dispatch thread.
      */
-    private static void createAndShowGUI() {
+    public void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("FileChooserDemo");
+        JFrame frame = new JFrame("Pixle Doubler");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Add content to the window.
@@ -100,18 +92,4 @@ public class ChooseFile extends JPanel implements ActionListener {
         frame.pack();
         frame.setVisible(true);
     }
-
-    public static void main(String[] args) {
-        //Schedule a job for the event dispatch thread:
-        //creating and showing this application's GUI.
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                //Turn off metal's use of bold fonts
-                UIManager.put("swing.boldMetal", Boolean.FALSE);
-                createAndShowGUI();
-            }
-        });
-    }
 }
-
-
