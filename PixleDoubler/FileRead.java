@@ -9,6 +9,7 @@ public class FileRead {
 
     public void reader(String FILENAME) throws IOException {
         File read = new File(FILENAME);
+        int repetitions = 6;
         /*if (!file.exists()) {
             file.createNewFile();
         } */ // if file already exists will do nothing
@@ -18,34 +19,21 @@ public class FileRead {
         BufferedWriter bufferW = new BufferedWriter(new FileWriter(write));
         while ((CurrentLine = buffer.readLine())!=null) {
             rowList = new ArrayList<String>(Arrays.asList(CurrentLine.split("\\t")));
-            System.out.println(rowList);
-            String newRowString = rowList.get(0) + "\t" + rowList.get(0) + "\t" + rowList.get(0) + "\t" + rowList.get(0) + "\t" + rowList.get(0) + "\t" + rowList.get(0);
-            for(int i = 1;rowList.size() > i;i++){
+            String newRowString = rowList.get(0);
+            for (int i = 1; i < repetitions; i++) {
                 newRowString += "\t";
-                newRowString = newRowString + rowList.get(i);
-                newRowString += "\t";
-                newRowString = newRowString + rowList.get(i);
-                newRowString += "\t";
-                newRowString = newRowString + rowList.get(i);
-                newRowString += "\t";
-                newRowString = newRowString + rowList.get(i);
-                newRowString += "\t";
-                newRowString = newRowString + rowList.get(i);
-                newRowString += "\t";
-                newRowString = newRowString + rowList.get(i);
+                newRowString = newRowString + rowList.get(0);
             }
-            bufferW.write(newRowString);
-            bufferW.newLine();
-            bufferW.write(newRowString);
-            bufferW.newLine();
-            bufferW.write(newRowString);
-            bufferW.newLine();
-            bufferW.write(newRowString);
-            bufferW.newLine();
-            bufferW.write(newRowString);
-            bufferW.newLine();
-            bufferW.write(newRowString);
-            bufferW.newLine();
+            for(int i = 1;rowList.size() > i;i++){
+                for (int j = 0; j < repetitions; j++) {
+                    newRowString += "\t";
+                    newRowString = newRowString + rowList.get(i);
+                }
+            }
+            for (int i = 0; i < repetitions; i++) {
+                bufferW.write(newRowString);
+                bufferW.newLine();
+            }
         }
         buffer.close();
         bufferW.close();
