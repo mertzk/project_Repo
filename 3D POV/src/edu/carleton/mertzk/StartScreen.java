@@ -112,12 +112,8 @@ public class StartScreen implements ActionListener{
             } else if(this.updates < 2){
                 helpLable.setText("Arc Pixels must > 2");
             }else{
-                SwingUtilities.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        new MainScreen();
-                    }
-                });
+                new MainScreen(this.rows, this.height, this.updates);
+                frame.dispose();
             }
             frame.pack();
         }catch(NumberFormatException error){

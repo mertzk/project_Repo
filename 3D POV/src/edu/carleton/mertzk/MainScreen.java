@@ -36,9 +36,15 @@ public class MainScreen {
 
     private int screen = 600;
     private int screenShift = 500;
+    private int ledUpdatesPerRevolution;
+    private int numberOfLedInARow;
+    private int numberOfLedRows;
     private double radius = 5.0;
 
-    public MainScreen(){
+    public MainScreen(int rows, int height, int updates){
+        this.ledUpdatesPerRevolution = updates;
+        this.numberOfLedInARow = rows;
+        this.numberOfLedRows = height;
         ToolBar();
         frame = new JFrame("3D POV Display Screen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
